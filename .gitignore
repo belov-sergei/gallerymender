@@ -1,0 +1,6 @@
+# Copyright ❤️ 2025, Wow Play
+
+# All files and directories ate ignored by default. Excplicitly allow only what should be tracked.
+*
+
+!.gitignore
