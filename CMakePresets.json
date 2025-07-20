@@ -1,0 +1,30 @@
+{
+	"version": 3,
+	"configurePresets": [
+		{
+			"name": "Windows",
+			"generator": "Visual Studio 17 2022",
+			"binaryDir": "Build/Windows",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"ProjectPlatform": "Windows"
+			}
+		}
+	],
+	"buildPresets": [
+		{
+			"name": "Windows Debug",
+			"configurePreset": "Windows",
+			"configuration": "Debug"
+		},
+		{
+			"name": "Windows Release",
+			"configurePreset": "Windows",
+			"configuration": "Release"
+		}
+	]
+}

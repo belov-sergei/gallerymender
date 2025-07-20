@@ -5,6 +5,8 @@
 
 !.gitignore
 !.clang-format
+!CMakeLists.txt
+!CMakePresets.json
 
 !Source/
 !Source/**
