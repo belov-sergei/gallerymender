@@ -13,6 +13,20 @@
 			"cacheVariables": {
 				"ProjectPlatform": "Windows"
 			}
+		},
+		{
+			"name": "Web",
+			"generator": "Ninja Multi-Config",
+			"binaryDir": "Build/Web",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Windows"
+			},
+			"cacheVariables": {
+				"ProjectPlatform": "Web",
+				"CMAKE_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+			}
 		}
 	],
 	"buildPresets": [
@@ -24,6 +38,16 @@
 		{
 			"name": "Windows Release",
 			"configurePreset": "Windows",
+			"configuration": "Release"
+		},
+		{
+			"name": "Web Debug",
+			"configurePreset": "Web",
+			"configuration": "Debug"
+		},
+		{
+			"name": "Web Release",
+			"configurePreset": "Web",
 			"configuration": "Release"
 		}
 	]
