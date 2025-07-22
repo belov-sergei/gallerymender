@@ -1,0 +1,22 @@
+// Copyright ❤️ 2025, Wow Play
+
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+		google()
+		mavenCentral()
+	}
+}
+
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
+		google()
+		mavenCentral()
+	}
+}
+
+include(":Jigsawville")
+project(":Jigsawville").projectDir = file("Source/Platforms/Android")
+
+rootProject.name = "Jigsawville"

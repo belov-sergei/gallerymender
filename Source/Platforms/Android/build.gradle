@@ -1,0 +1,42 @@
+// Copyright ❤️ 2025, Wow Play
+
+plugins {
+	id 'com.android.application'
+}
+
+android {
+	namespace 'com.wowplay.jigsawville'
+
+	buildDir = file("${rootDir}/Build/Android")
+
+	compileSdk 33
+	ndkVersion "27.2.12479018"
+
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			java.srcDirs= ['Java']
+		}
+	}
+
+	defaultConfig {
+		applicationId "com.wowplay.jigsawville"
+		minSdk 21
+		targetSdk 33
+		versionCode 1
+		versionName "1.0"
+
+		externalNativeBuild {
+			cmake {
+				arguments += ["-DProjectPlatform=Android"]
+			}
+		}
+	}
+
+	externalNativeBuild {
+		cmake {
+			path "${rootDir}/CMakeLists.txt"
+			buildStagingDirectory = "${buildDir}/.cxx"
+		}
+	}
+}

@@ -1,7 +1,7 @@
 # Copyright ❤️ 2025, Wow Play
 
 # Requires CMake 3.21 or higher for support CMake presets version 3.
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.21)
 
 include("${CMAKE_SOURCE_DIR}/CMake/FileHelpers.cmake")
 
@@ -25,10 +25,13 @@ FindFiles(SourceFiles
 	"${CMAKE_SOURCE_DIR}/Source/*"
 	"!${CMAKE_SOURCE_DIR}/Source/Platforms/*"
 	"${CMAKE_SOURCE_DIR}/Source/Platforms/${ProjectPlatform}/*"
+	"!${CMAKE_SOURCE_DIR}/Source/*.xml"
+	"!${CMAKE_SOURCE_DIR}/Source/*.java"
+	"!${CMAKE_SOURCE_DIR}/Source/*.gradle"
 )
 
 if("${TargetType}" STREQUAL "STATIC" OR "${TargetType}" STREQUAL "SHARED" OR "${TargetType}" STREQUAL "INTERFACE")
-	add_library("${ProjectName}" "${SourceFiles}")
+	add_library("${ProjectName}" "${TargetType}" "${SourceFiles}")
 else()
 	add_executable("${ProjectName}" "${TargetType}" "${SourceFiles}")
 endif()
