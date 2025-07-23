@@ -27,6 +27,19 @@
 				"ProjectPlatform": "Web",
 				"CMAKE_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
 			}
+		},
+		{
+			"name": "Mac",
+			"generator": "Xcode",
+			"binaryDir": "Build/Mac",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Darwin"
+			},
+			"cacheVariables": {
+				"ProjectPlatform": "Mac"
+			}
 		}
 	],
 	"buildPresets": [
@@ -48,6 +61,16 @@
 		{
 			"name": "Web Release",
 			"configurePreset": "Web",
+			"configuration": "Release"
+		},
+		{
+			"name": "Mac Debug",
+			"configurePreset": "Mac",
+			"configuration": "Debug"
+		},
+		{
+			"name": "Mac Release",
+			"configurePreset": "Mac",
 			"configuration": "Release"
 		}
 	]
