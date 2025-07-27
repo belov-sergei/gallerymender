@@ -11,7 +11,7 @@
 				"rhs": "Windows"
 			},
 			"cacheVariables": {
-				"ProjectPlatform": "Windows"
+				"PROJECT_PLATFORM": "Windows"
 			}
 		},
 		{
@@ -24,7 +24,7 @@
 				"rhs": "Windows"
 			},
 			"cacheVariables": {
-				"ProjectPlatform": "Web",
+				"PROJECT_PLATFORM": "Web",
 				"CMAKE_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
 			}
 		},
@@ -38,7 +38,7 @@
 				"rhs": "Darwin"
 			},
 			"cacheVariables": {
-				"ProjectPlatform": "Mac"
+				"PROJECT_PLATFORM": "Mac"
 			}
 		}
 	],

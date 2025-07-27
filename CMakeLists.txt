@@ -3,40 +3,29 @@
 # Requires CMake 3.21 or higher for support CMake presets version 3.
 cmake_minimum_required(VERSION 3.21)
 
-include("${CMAKE_SOURCE_DIR}/CMake/FileHelpers.cmake")
-
-set(ProjectName "GalleryMender")
-project("${ProjectName}")
+project(GalleryMender)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-if(MSVC)
-	add_compile_options(/W4 /WX)
-else()
-	add_compile_options(-Wall -Wextra -Wpedantic -Werror)
-endif()
+include("${CMAKE_SOURCE_DIR}/CMake/FileHelpers.cmake")
+include("${CMAKE_SOURCE_DIR}/CMake/Platforms/${PROJECT_PLATFORM}/CMakeLists.txt")
 
-set(TargetType "")
-include("${CMAKE_SOURCE_DIR}/CMake/Platforms/${ProjectPlatform}/CMakeLists.txt")
-
-FindFiles(SourceFiles
+FIND_FILES(SOURCE_FILES
 	"${CMAKE_SOURCE_DIR}/Source/*"
 	"!${CMAKE_SOURCE_DIR}/Source/Platforms/*"
-	"${CMAKE_SOURCE_DIR}/Source/Platforms/${ProjectPlatform}/*"
+	"${CMAKE_SOURCE_DIR}/Source/Platforms/${PROJECT_PLATFORM}/*"
 	"!${CMAKE_SOURCE_DIR}/Source/*.xml"
 	"!${CMAKE_SOURCE_DIR}/Source/*.java"
 	"!${CMAKE_SOURCE_DIR}/Source/*.gradle"
 )
 
-if("${TargetType}" STREQUAL "STATIC" OR "${TargetType}" STREQUAL "SHARED" OR "${TargetType}" STREQUAL "INTERFACE")
-	add_library("${ProjectName}" "${TargetType}" "${SourceFiles}")
-else()
-	add_executable("${ProjectName}" "${TargetType}" "${SourceFiles}")
-endif()
+target_sources(${PROJECT_NAME} PRIVATE "${SOURCE_FILES}")
 
-target_include_directories("${ProjectName}" PRIVATE "${CMAKE_SOURCE_DIR}/Source")
-target_include_directories("${ProjectName}" PRIVATE "${CMAKE_SOURCE_DIR}/Source/Platforms/${ProjectPlatform}")
+target_include_directories(${PROJECT_NAME} PRIVATE
+	"${CMAKE_SOURCE_DIR}/Source"
+	"${CMAKE_SOURCE_DIR}/Source/Platforms/${PROJECT_PLATFORM}"
+)
 
-target_precompile_headers("${ProjectName}" PRIVATE "${CMAKE_SOURCE_DIR}/Source/PCH.h")
+target_precompile_headers(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/Source/PCH.h")
