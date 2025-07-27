@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 	}
 }
 
-include(":Jigsawville")
-project(":Jigsawville").projectDir = file("Source/Platforms/Android")
+include(":GalleryMender")
+project(":GalleryMender").projectDir = file("Source/Platforms/Android")
 
-rootProject.name = "Jigsawville"
+rootProject.name = "GalleryMender"

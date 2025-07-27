@@ -2,6 +2,6 @@
 
 #include <jni.h>
 
-extern "C" JNIEXPORT jstring JNICALL Java_com_wowplay_jigsawville_ApplicationActivity_GetText(JNIEnv* env, jobject) {
+extern "C" JNIEXPORT jstring JNICALL Java_com_wowplay_gallerymender_ApplicationActivity_GetText(JNIEnv* env, jobject) {
     return env->NewStringUTF("Hello, World!");
 }

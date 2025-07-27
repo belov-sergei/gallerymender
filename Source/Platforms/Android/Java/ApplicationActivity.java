@@ -1,6 +1,6 @@
 // Copyright ❤️ 2025, Wow Play
 
-package com.wowplay.jigsawville;
+package com.wowplay.gallerymender;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class ApplicationActivity extends Activity {
 	static {
-		System.loadLibrary("Jigsawville");
+		System.loadLibrary("GalleryMender");
 	}
 
 	public native String GetText();

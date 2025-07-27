@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.21)
 
 include("${CMAKE_SOURCE_DIR}/CMake/FileHelpers.cmake")
 
-set(ProjectName "Jigsawville")
+set(ProjectName "GalleryMender")
 project("${ProjectName}")
 
 set(CMAKE_CXX_STANDARD 20)
