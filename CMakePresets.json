@@ -40,6 +40,19 @@
 			"cacheVariables": {
 				"PROJECT_PLATFORM": "Mac"
 			}
+		},
+		{
+			"name": "IOS",
+			"generator": "Xcode",
+			"binaryDir": "Build/IOS",
+			"condition": {
+				"type": "equals",
+				"lhs": "${hostSystemName}",
+				"rhs": "Darwin"
+			},
+			"cacheVariables": {
+				"PROJECT_PLATFORM": "IOS"
+			}
 		}
 	],
 	"buildPresets": [
@@ -71,6 +84,16 @@
 		{
 			"name": "Mac Release",
 			"configurePreset": "Mac",
+			"configuration": "Release"
+		},
+		{
+			"name": "IOS Debug",
+			"configurePreset": "IOS",
+			"configuration": "Debug"
+		},
+		{
+			"name": "IOS Release",
+			"configurePreset": "IOS",
 			"configuration": "Release"
 		}
 	]

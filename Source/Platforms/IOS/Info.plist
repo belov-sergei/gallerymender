@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright ❤️ 2025, Wow Play -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.wowplay.gallerymender</string>
+
+	<key>CFBundleName</key>
+	<string>Gallery Mender</string>
+
+	<key>CFBundleExecutable</key>
+	<string>GalleryMender</string>
+</dict>
+</plist>
